@@ -4,16 +4,10 @@ namespace YJingLee.Office.Core
 {
     public interface IBasicWrite
     {
-        void WriteValue(int sheetIndex, int rowIndex, int cellIndex, dynamic value, int styleIndex, string formula =null);
+        void WriteValue(int sheetIndex, int rowIndex, int cellIndex, dynamic value, int styleIndex, string formula = null);
         void CreateSheet(string name);
         byte[] WriteStream();
         void WriteFile(string filePath);
-    }
-
-    public interface IStyle
-    {
-        void SetColumnWidth(int sheetIndex, int firstColumn, int[] widths);
-        void SetStyle(int sheetIndex, int firstRow, int lastRow, int firstColumn, int lastColumn, int styleIndex);
     }
 
     public interface IWrite

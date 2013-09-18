@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NPOI.SS.Util;
 using YJingLee.Office.Core;
 
 namespace YJingLee.Office.Npoi
@@ -125,11 +126,19 @@ namespace YJingLee.Office.Npoi
         public void SetStyle(int sheetIndex, int firstRow, int lastRow, int firstColumn, int lastColumn, int styleIndex)
         {
             var currentSheet = _internalExcel.GetWorkbook().GetSheetAt(sheetIndex);
-            for (var i = firstRow; i <= lastRow; i++)
+
+            if (sheetIndex == 0)
             {
-                for (var j = firstColumn; j <= lastColumn; j++)
+                currentSheet.AddMergedRegion(new CellRangeAddress(firstRow, lastRow, firstColumn, lastColumn));
+            }
+            else
+            {
+                for (var i = firstRow; i <= lastRow; i++)
                 {
-                    currentSheet.GetRow(i).GetCell(j).CellStyle = _internalExcel.GetWorkbook().GetCellStyleAt((short)sheetIndex);
+                    for (var j = firstColumn; j <= lastColumn; j++)
+                    {
+                        currentSheet.GetRow(i).GetCell(j).CellStyle = _internalExcel.GetWorkbook().GetCellStyleAt((short)sheetIndex);
+                    }
                 }
             }
         }
