@@ -8,9 +8,9 @@ yjinglee.office用于.Net平台下的Excel操作，主要封装NPOI对外提供�
 - 写入集合到Excel，并提供可以Excel样式定义
 - 公开底层Api
 
-## 快速入门 ##
+## [快速入门](https://github.com/YJingLee/yjinglee.office/wiki/Quickstart "快速入门") ##
 
-[Wiki链接](https://github.com/YJingLee/yjinglee.office/wiki "Wiki链接")
+## [接口说明](https://github.com/YJingLee/yjinglee.office/wiki/Interface "接口说明") ##
 
 ## 引用项目 ##
 
