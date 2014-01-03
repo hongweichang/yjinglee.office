@@ -44,6 +44,11 @@ namespace YJingLee.Office.Npoi
             return results;
         }
 
+        public void CreateRow(int sheetIndex, int rowIndex)
+        {
+            _internalExcel.CreateRow(sheetIndex, rowIndex);
+        }
+
         public void WriteValue(int sheetIndex, int rowIndex, int cellIndex, dynamic value, int styleIndex, string formula = null)
         {
             _internalExcel.WriteValue(sheetIndex, rowIndex, cellIndex, value, styleIndex, formula);
@@ -66,7 +71,7 @@ namespace YJingLee.Office.Npoi
 
         public void WriteTitle(int sheetIndex, int rowIndex, dynamic[] titles)
         {
-            _internalExcel.GetWorkbook().GetSheetAt(sheetIndex).CreateRow(rowIndex);
+            CreateRow(sheetIndex, rowIndex);
             for (var i = 0; i < titles.Length; i++)
             {
                 WriteValue(sheetIndex, rowIndex, i, titles[i], 1);
@@ -75,7 +80,7 @@ namespace YJingLee.Office.Npoi
 
         public void WriteProperty<T>(int sheetIndex, int rowIndex, T firstEntity, object secondEntity = null)
         {
-            _internalExcel.GetWorkbook().GetSheetAt(sheetIndex).CreateRow(rowIndex);
+            CreateRow(sheetIndex, rowIndex);
             var cellIndex = 0;
 
             var firstProperties = firstEntity.GetProperties();

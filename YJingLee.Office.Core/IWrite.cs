@@ -4,6 +4,7 @@ namespace YJingLee.Office.Core
 {
     public interface IBasicWrite
     {
+        void CreateRow(int sheetIndex, int rowIndex);
         void WriteValue(int sheetIndex, int rowIndex, int cellIndex, dynamic value, int styleIndex, string formula = null);
         void CreateSheet(string name);
         byte[] WriteStream();

@@ -31,6 +31,11 @@ namespace YJingLee.Office.Npoi
                 ExcelStyleUtil.RegisterStyle(excelStyle, _workbook);
         }
 
+        public void CreateRow(int sheetIndex, int rowIndex)
+        {
+            _workbook.GetSheetAt(sheetIndex).CreateRow(rowIndex);
+        }
+
         public void WriteValue(int sheetIndex, int rowIndex, int cellIndex, dynamic value, int styleIndex, string formula =null)
         {
             var currentCell = _workbook.GetSheetAt(sheetIndex).GetRow(rowIndex).CreateCell(cellIndex);
