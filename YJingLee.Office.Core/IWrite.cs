@@ -13,9 +13,9 @@ namespace YJingLee.Office.Core
 
     public interface IWrite
     {
-        void WriteTitle(int sheetIndex, int rowIndex, dynamic[] titles);
-        void WriteProperty<T>(int sheetIndex, int rowIndex, T firstEntity, object secondEntity = null);
-        void WriteEnumerable<T>(int sheetIndex, int rowIndex, IEnumerable<T> entities);
-        void WriteObject<T>(int sheetIndex, int rowIndex, ICollection<T> entities);
+        void WriteTitle(string[] titles, int sheetIndex, int rowIndex, int cellIndex = 0, int styleIndex = 1);
+        int WriteProperty<T>(T entity, int sheetIndex, int rowIndex, int cellIndex = 0, int styleIndex = 2);
+        void WriteEnumerable<T>(IEnumerable<T> entities, int sheetIndex, int rowIndex);
+        void WriteObject<T>(ICollection<T> entities, int sheetIndex, int rowIndex);
     }
 }

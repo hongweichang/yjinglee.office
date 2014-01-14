@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YJingLee.Office.Core", "YJingLee.Office.Core\YJingLee.Office.Core.csproj", "{DB1F6DA2-D244-4090-B467-7235FE41500D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YJingLee.Office.Npoi", "YJingLee.Office.Npoi\YJingLee.Office.Npoi.csproj", "{B368B39C-B3BA-4FAA-ABFE-1F706F43D611}"

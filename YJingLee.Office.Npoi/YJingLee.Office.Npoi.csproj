@@ -68,7 +68,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>..\..\..\packages\ILRepack.1.22.2\tools\ILRepack.exe /out:YJingLee.Office.dll YJingLee.Office.Core.dll YJingLee.Office.Npoi.dll NPOI.dll NPOI.OOXML.dll NPOI.OpenXml4Net.dll NPOI.OpenXmlFormats.dll ICSharpCode.SharpZipLib.dll</PostBuildEvent>
+    <PostBuildEvent>..\..\..\packages\ILRepack.1.23.0\tools\ILRepack.exe /out:YJingLee.Office.dll YJingLee.Office.Core.dll YJingLee.Office.Npoi.dll NPOI.dll NPOI.OOXML.dll NPOI.OpenXml4Net.dll NPOI.OpenXmlFormats.dll ICSharpCode.SharpZipLib.dll</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

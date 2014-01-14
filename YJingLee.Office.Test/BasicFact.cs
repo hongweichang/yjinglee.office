@@ -12,7 +12,7 @@ namespace YJingLee.Office.Test
         {
             var excel = new Excel();
             excel.CreateSheet("Test");
-            excel.WriteObject(0, 0, Reports);
+            excel.WriteObject(Reports, 0, 0);
             excel.SetColumnWidth(0, 0, new[] { 5, 35 });
             excel.WriteFile(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "aa.xlsx"));
         }
@@ -22,7 +22,7 @@ namespace YJingLee.Office.Test
         {
             var excel = new Excel(new DefaultStyle());
             excel.CreateSheet("Test");
-            excel.WriteObject(0, 0, Reports);
+            excel.WriteObject(Reports, 0, 0);
             excel.SetColumnWidth(0, 0, new[] { 5, 35 });
             excel.WriteFile(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "aa.xlsx"));
         }
@@ -32,7 +32,7 @@ namespace YJingLee.Office.Test
         {
             var excel = new Excel(new BlueStyle());
             excel.CreateSheet("Test");
-            excel.WriteObject(0, 0, Reports);
+            excel.WriteObject(Reports, 0, 0);
             excel.SetColumnWidth(0, 0, new[] { 5, 35 });
             excel.WriteFile(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "aa.xlsx"));
         }

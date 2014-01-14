@@ -47,4 +47,20 @@ namespace YJingLee.Office.Npoi
             cellStyle.SetBackgroundColor(HSSFColor.Blue.Index);
         }
     }
+
+    public class FormatStyle : DefaultStyle
+    {
+        public override void RegisterCustomStyle(IWorkbook workbook)
+        {
+            var format = workbook.CreateDataFormat();
+
+            ICellStyle cellStyle = workbook.CreateCellStyle();
+            RegisterContentStyle(workbook, cellStyle);
+            cellStyle.DataFormat = format.GetFormat("0.00%");
+
+            ICellStyle cellStyle2 = workbook.CreateCellStyle();
+            RegisterContentStyle(workbook, cellStyle2);
+            cellStyle2.DataFormat = format.GetFormat("￥0.00");
+        }
+    }
 }

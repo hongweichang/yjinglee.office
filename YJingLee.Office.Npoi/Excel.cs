@@ -69,54 +69,47 @@ namespace YJingLee.Office.Npoi
             _internalExcel.WriteFile(filePath);
         }
 
-        public void WriteTitle(int sheetIndex, int rowIndex, dynamic[] titles)
+        public void WriteTitle(string[] titles, int sheetIndex, int rowIndex, int cellIndex = 0, int styleIndex = 1)
         {
             CreateRow(sheetIndex, rowIndex);
             for (var i = 0; i < titles.Length; i++)
             {
-                WriteValue(sheetIndex, rowIndex, i, titles[i], 1);
+                WriteValue(sheetIndex, rowIndex, cellIndex + i, titles[i], styleIndex);
             }
         }
 
-        public void WriteProperty<T>(int sheetIndex, int rowIndex, T firstEntity, object secondEntity = null)
+        public int WriteProperty<T>(T entity, int sheetIndex, int rowIndex, int cellIndex = 0, int styleIndex = 2)
         {
-            CreateRow(sheetIndex, rowIndex);
-            var cellIndex = 0;
-
-            var firstProperties = firstEntity.GetProperties();
+            var thisIndex = cellIndex;
+            var firstProperties = entity.GetProperties();
             foreach (var property in firstProperties)
             {
-                var value = firstEntity.GetValue(property);
-                WriteValue(sheetIndex, rowIndex, cellIndex, value, 2);
-                cellIndex++;
+                var value = entity.GetValue(property);
+                WriteValue(sheetIndex, rowIndex, thisIndex, value, styleIndex);
+                thisIndex++;
             }
-            var secondProperties = secondEntity.GetProperties();
-            foreach (var property in secondProperties)
-            {
-                var value = secondEntity.GetValue(property);
-                WriteValue(sheetIndex, rowIndex, cellIndex, value, 2);
-                cellIndex++;
-            }
+            return thisIndex;
         }
 
-        public void WriteEnumerable<T>(int sheetIndex, int rowIndex, IEnumerable<T> entities)
+        public void WriteEnumerable<T>(IEnumerable<T> entities, int sheetIndex, int rowIndex)
         {
             foreach (var entity in entities)
             {
-                WriteProperty(sheetIndex, rowIndex, entity);
+                CreateRow(sheetIndex, rowIndex);
+                WriteProperty(entity, sheetIndex, rowIndex);
                 rowIndex++;
             }
         }
 
-        public void WriteObject<T>(int sheetIndex, int rowIndex, ICollection<T> entities)
+        public void WriteObject<T>(ICollection<T> entities, int sheetIndex, int rowIndex)
         {
             if (!entities.Any())
                 return;
-            dynamic[] titles = typeof(T).GetProperties().Select(o => o.GetDescription()).ToArray();
+            var titles = typeof(T).GetProperties().Select(o => o.GetDescription()).ToArray();
 
-            WriteTitle(sheetIndex, rowIndex, titles);
+            WriteTitle(titles, sheetIndex, rowIndex);
             rowIndex++;
-            WriteEnumerable(sheetIndex, rowIndex, entities);
+            WriteEnumerable(entities, sheetIndex, rowIndex);
         }
 
         public void SetColumnWidth(int sheetIndex, int firstColumn, int[] widths)
@@ -132,17 +125,18 @@ namespace YJingLee.Office.Npoi
         {
             var currentSheet = _internalExcel.GetWorkbook().GetSheetAt(sheetIndex);
 
-            if (sheetIndex == 0)
+            if (styleIndex == 0)
             {
                 currentSheet.AddMergedRegion(new CellRangeAddress(firstRow, lastRow, firstColumn, lastColumn));
             }
             else
             {
+                var cellStyle = _internalExcel.GetWorkbook().GetCellStyleAt((short) styleIndex);
                 for (var i = firstRow; i <= lastRow; i++)
                 {
                     for (var j = firstColumn; j <= lastColumn; j++)
                     {
-                        currentSheet.GetRow(i).GetCell(j).CellStyle = _internalExcel.GetWorkbook().GetCellStyleAt((short)sheetIndex);
+                        currentSheet.GetRow(i).GetCell(j).CellStyle = cellStyle;
                     }
                 }
             }

@@ -33,6 +33,12 @@ namespace YJingLee.Office.Npoi
             return style;
         }
 
+        public static ICellStyle SetAlignment(this ICellStyle style)
+        {
+            style.Alignment = HorizontalAlignment.Center;
+            return style;
+        }
+
         public static dynamic GetCellData(this ICell cell)
         {
             switch (cell.CellType)
