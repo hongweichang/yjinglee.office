@@ -53,11 +53,11 @@ namespace YJingLee.Office.Npoi
         public override void RegisterCustomStyle(IWorkbook workbook)
         {
             var format = workbook.CreateDataFormat();
-
+            //styleIndex = 3
             ICellStyle cellStyle = workbook.CreateCellStyle();
             RegisterContentStyle(workbook, cellStyle);
             cellStyle.DataFormat = format.GetFormat("0.00%");
-
+            //styleIndex = 4
             ICellStyle cellStyle2 = workbook.CreateCellStyle();
             RegisterContentStyle(workbook, cellStyle2);
             cellStyle2.DataFormat = format.GetFormat("￥0.00");
