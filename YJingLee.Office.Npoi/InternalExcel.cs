@@ -41,6 +41,7 @@ namespace YJingLee.Office.Npoi
             var currentCell = _workbook.GetSheetAt(sheetIndex).GetRow(rowIndex).CreateCell(cellIndex);
             if (value != null)
             {
+                //todo more type
                 if (value is decimal || value is long || value is ulong)
                     currentCell.SetCellValue((double) value);
                 else
