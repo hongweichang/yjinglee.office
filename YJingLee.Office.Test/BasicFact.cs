@@ -16,7 +16,7 @@ namespace YJingLee.Office.Test
             excel.CreateSheet("Test");
             excel.WriteObject(Reports, 0, 0);
             excel.SetColumnWidth(0, 0, new[] { 5, 35 });
-            excel.WriteFile(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "aa.xlsx"));
+            excel.WriteFile(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "BasicBlank.xlsx"));
         }
 
         [Fact]
@@ -26,7 +26,7 @@ namespace YJingLee.Office.Test
             excel.CreateSheet("Test");
             excel.WriteObject(Reports, 0, 0);
             excel.SetColumnWidth(0, 0, new[] { 5, 35 });
-            excel.WriteFile(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "aa.xlsx"));
+            excel.WriteFile(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "BasicDefault.xlsx"));
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace YJingLee.Office.Test
             excel.CreateSheet("Test");
             excel.WriteObject(Reports, 0, 0);
             excel.SetColumnWidth(0, 0, new[] { 5, 35 });
-            excel.WriteFile(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "aa.xlsx"));
+            excel.WriteFile(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "BasicBlue.xlsx"));
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace YJingLee.Office.Test
                 }
             }
             excel.SetColumnWidth(1, 1, new[] { 35 });//设置Name列宽
-            excel.WriteFile(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "aa.xlsx"));
+            excel.WriteFile(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "Custom.xlsx"));
         }
     }
 }

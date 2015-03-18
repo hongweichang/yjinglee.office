@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YJingLee.Office.Core", "YJingLee.Office.Core\YJingLee.Office.Core.csproj", "{DB1F6DA2-D244-4090-B467-7235FE41500D}"
 EndProject
@@ -11,7 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YJingLee.Office.Test", "YJi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BE8C5E6D-1AA2-46A6-B7E7-803921C9117B}"
 	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EE6E4708-5E0E-45AF-9D52-ED66B8381D72}"
+	ProjectSection(SolutionItems) = preProject
+		doc\1.Quickstart.md = doc\1.Quickstart.md
+		doc\2.Interface.md = doc\2.Interface.md
 	EndProjectSection
 EndProject
 Global

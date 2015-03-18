@@ -1,3 +1,6 @@
+﻿Readme
+======
+
 #Welcome to yjinglee.office#
 ----------
 ## 简介 ##
@@ -16,7 +19,7 @@ yjinglee.office用于.Net平台下的Excel操作，主要封装NPOI对外提供�
 
 [NPOI](https://github.com/tonyqus/npoi "npoi")：Excel组件
 
-[xUnit.net](http://xunit.codeplex.com/ "xUnit.net")：单元测试
+[xUnit.net](https://github.com/xunit/xunit "xUnit.net")：单元测试
 
 [ILRepack](https://github.com/gluck/il-repack "ILRepack")：程序集合并工具
 
