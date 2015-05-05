@@ -58,5 +58,15 @@ namespace YJingLee.Office.Npoi
             }
             return null;
         }
+
+        public static dynamic GetRowData(this IRow row, int cellIndex)
+        {
+            var cell = row.GetCell(cellIndex);
+            if (cell == null)
+            {
+                return string.Empty;
+            }
+            return cell.GetCellData();
+        }
     }
 }

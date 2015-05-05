@@ -15,6 +15,24 @@ namespace YJingLee.Office.Npoi
             _internalExcel = new InternalExcel(excelStyle, filePath);
         }
 
+        public void Read(int sheetIndex, int rowIndex, Action<dynamic[]> action)
+        {
+            var currentSheet = _internalExcel.GetWorkbook().GetSheetAt(sheetIndex);
+
+            for (var i = rowIndex; i < currentSheet.LastRowNum; i++)
+            {
+                var currentRow = currentSheet.GetRow(i);
+                var count = currentRow.LastCellNum;
+                var value = new dynamic[count];
+                for (var j = 0; j < count; j++)
+                {
+                    value[j] = currentRow.GetRowData(j);
+                }
+                action(value);
+            }
+        }
+
+
         public T ReadProperty<T>(int sheetIndex, int rowIndex)
         {
             var cellIndex = 0;
